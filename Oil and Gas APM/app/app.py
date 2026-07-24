@@ -199,7 +199,8 @@ else:
     # =========================================================
     # THREE-CARD ROW: Risk Score | Maintenance Status | Next Checkup
     # =========================================================
-    card1, card2, card3 = st.columns(3)
+    #card1, card2, card3 = st.columns(3)
+    card1, card2, card3 = st.columns(3, gap="medium")
 
     with card1:
         st.markdown(f"""
