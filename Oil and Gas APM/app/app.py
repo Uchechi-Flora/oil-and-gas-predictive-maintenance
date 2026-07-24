@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add the project root to Python's search path, so imports like
+# "from logic.scheduling import ..." work regardless of how the app is launched
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import streamlit as st
 import pandas as pd
 import numpy as np
