@@ -1,9 +1,11 @@
 import sys
 import os
 
-# Add the project root to Python's search path, so imports like
-# "from logic.scheduling import ..." work regardless of how the app is launched
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Absolute path to the project root (Oil and Gas APM), regardless of
+# where Streamlit Cloud sets its working directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -22,7 +24,9 @@ GOOD = "#3CA653"
 BAD = "#B0392E"
 
 FINAL_THRESHOLD = 0.30
-EXCEL_PATH = "data/asset_predictive_maintenance.xlsx"
+EXCEL_PATH = os.path.join(BASE_DIR, "data", "asset_predictive_maintenance.xlsx")
+DATA_PATH = os.path.join(BASE_DIR, "data", "model_ready_data.csv")
+MODEL_PATH = os.path.join(BASE_DIR, "models", "failure_risk_model.pkl")
 
 FEATURE_COLS = [
     "vibration_mm_s", "temperature_c", "pressure_psi", "flow_rate_m3h", "rpm",
@@ -92,7 +96,7 @@ def go_to_home():
 # =========================================================
 @st.cache_data
 def load_data():
-    return pd.read_csv("data/model_ready_data.csv")
+    return pd.read_csv(DATA_PATH)
 
 @st.cache_data
 def load_maintenance_and_asset_tables():
@@ -103,7 +107,7 @@ def load_maintenance_and_asset_tables():
 
 @st.cache_resource
 def load_model():
-    return joblib.load("models/failure_risk_model.pkl")
+    return joblib.load(MODEL_PATH)
 
 df = load_data()
 model = load_model()
