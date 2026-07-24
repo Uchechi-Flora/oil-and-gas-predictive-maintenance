@@ -64,6 +64,10 @@ st.markdown(f"""
         background-color: #d99f4a;
         color: #ffffff;
     }}
+    
+    div[data-testid="column"] {{
+        padding: 0 8px;
+    }}
 
     .footer {{
         position: fixed;
