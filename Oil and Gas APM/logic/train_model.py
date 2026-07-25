@@ -20,7 +20,7 @@ TARGET_COL = "will_fail_soon"
 
 # The threshold we've decided to use going forward, based on the
 # cost trade-off (missed failures are far more expensive than false alarms)
-FINAL_THRESHOLD = 0.30
+FINAL_THRESHOLD = 0.40
 
 
 def train_model():
