@@ -23,7 +23,7 @@ AMBER = "#edb564"
 GOOD = "#3CA653"
 BAD = "#B0392E"
 
-FINAL_THRESHOLD = 0.30
+FINAL_THRESHOLD = 0.40
 EXCEL_PATH = os.path.join(BASE_DIR, "data", "asset_predictive_maintenance.xlsx")
 DATA_PATH = os.path.join(BASE_DIR, "data", "model_ready_data.csv")
 MODEL_PATH = os.path.join(BASE_DIR, "models", "failure_risk_model.pkl")
